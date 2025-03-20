@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.sala.java.school.phoneshope.Exception.ApiException;
+import com.sala.java.school.phoneshope.Exception.ResourceNotFoundException;
 import com.sala.java.school.phoneshope.entity.Brand;
 import com.sala.java.school.phoneshope.repository.BrandRepository;
 import com.sala.java.school.phoneshope.service.BrandService;
@@ -33,8 +34,7 @@ public class BrandServiceImpl implements BrandService {
 		return brandRepository.findById(id)
 				// .orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND,
 				// String.format("Brand with id = %d not found", id)));
-				.orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND,
-						String.format("Brand with id = %d not found", id)));
+				.orElseThrow(() -> new ResourceNotFoundException("Brand", id));
 	}
 
 	@Override
