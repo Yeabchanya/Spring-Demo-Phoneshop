@@ -1,11 +1,11 @@
 package com.sala.java.school.phoneshope.service.Impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
+import java.util.List;
+import java.util.Map;
 
-import com.sala.java.school.phoneshope.Exception.ApiException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.sala.java.school.phoneshope.Exception.ResourceNotFoundException;
 import com.sala.java.school.phoneshope.entity.Brand;
 import com.sala.java.school.phoneshope.repository.BrandRepository;
@@ -23,7 +23,7 @@ public class BrandServiceImpl implements BrandService {
 
 	@Override
 	public Brand getById(Integer id) {
-//		
+		
 //		Optional<Brand> brandOptional = brandRepository.findById(id);
 //		if(brandOptional.isPresent()) {
 //			return brandOptional.get();
@@ -40,8 +40,25 @@ public class BrandServiceImpl implements BrandService {
 	@Override
 	public Brand update(Integer id, Brand brandUpdate) {
 		Brand brand = getById(id);
-		brand.setName(brandUpdate.getName());  // @TODO improve update
+		brand.setName(brandUpdate.getName()); // @TODO improve update
 		return brandRepository.save(brand);
+	}
+
+ 	@Override
+	public List<Brand> getBrands() {
+		return brandRepository.findAll();
+	}
+
+	@Override
+	public List<Brand> getBrands(String name) {
+		return brandRepository.findByNameIgnoreCase(name);
+	}
+
+	@Override
+	public List<Brand> getBrands(Map<String, String> param) {
+		// TODO Auto-generated method stub
+		return null;
+		
 	}
 
 }
