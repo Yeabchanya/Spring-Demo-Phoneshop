@@ -12,7 +12,7 @@ public interface BrandService {
 
 	Brand update(Integer id, Brand brandUpdate);
 
-	List<Brand> getBrands();
+	List<Brand> getBrands(); // Method overload
 
 	List<Brand> getBrands(String name);
 	

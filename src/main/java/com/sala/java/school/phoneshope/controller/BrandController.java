@@ -60,7 +60,7 @@ public class BrandController {
 		return ResponseEntity.ok(List);
 	}
 	
-	@GetMapping("filter")
+	@GetMapping("filter") // filter
 	public ResponseEntity<?> getBrands(@RequestParam("name") String name) {
 		List<BrandDTO> List = brandService.getBrands(name)
 				.stream()

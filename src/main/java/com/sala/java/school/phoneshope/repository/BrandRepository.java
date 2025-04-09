@@ -10,5 +10,7 @@ import com.sala.java.school.phoneshope.entity.Brand;
 
 @Repository
 public interface BrandRepository extends JpaRepository<Brand, Integer>, JpaSpecificationExecutor<Brand>{
-	List<Brand> findByNameIgnoreCase(String name);
+	
+	//JPA Query Methods
+	List<Brand> findByNameIgnoreCase(String name); // filter search
 }

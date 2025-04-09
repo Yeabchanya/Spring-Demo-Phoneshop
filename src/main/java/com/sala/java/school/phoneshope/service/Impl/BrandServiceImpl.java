@@ -48,8 +48,8 @@ public class BrandServiceImpl implements BrandService {
 	public List<Brand> getBrands() {
 		return brandRepository.findAll();
 	}
-
-	@Override
+ 	
+	@Override // Method overload
 	public List<Brand> getBrands(String name) {
 		return brandRepository.findByNameIgnoreCase(name);
 	}
