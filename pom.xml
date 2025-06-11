@@ -1,30 +1,31 @@
 	<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.4.3</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sala.java.school</groupId>
 	<artifactId>phoneshope</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>phoneshope</name>
 	<description>project Practice for Spring Boot</description>
-	<url/>
+	<url />
 	<licenses>
-		<license/>
+		<license />
 	</licenses>
 	<developers>
-		<developer/>
+		<developer />
 	</developers>
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection />
+		<developerConnection />
+		<tag />
+		<url />
 	</scm>
 	<properties>
 		<java.version>23</java.version>
@@ -38,7 +39,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -54,12 +55,41 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		<dependency> 
-	        <groupId>org.mapstruct</groupId>
-	        <artifactId>mapstruct</artifactId>
-	        <version>1.5.3.Final</version>
-       </dependency>
+
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.5.3.Final</version>
+		</dependency>
+
+		<!-- Swagger-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<!--Swagger UI-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+
+		<!--liquibase-->
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+
+
 	</dependencies>
 
 
@@ -90,30 +120,40 @@
 				</configuration>
 			</plugin>
 			<plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-compiler-plugin</artifactId>
-			    <configuration>
-			        <source>11</source>
-			        <target>11</target>
-			        <annotationProcessorPaths>
-			            <path>
-			                <groupId>org.projectlombok</groupId>
-			                <artifactId>lombok</artifactId>
-			                <version>1.18.36</version>
-			            </path>
-			            <path>
-			                <groupId>org.mapstruct</groupId>
-			                <artifactId>mapstruct-processor</artifactId>
-			                <version>1.6.3</version>
-			            </path>
-			            <path>
-			                <groupId>org.projectlombok</groupId>
-			                <artifactId>lombok-mapstruct-binding</artifactId>
-			                <version>0.2.0</version>
-			            </path>
-			        </annotationProcessorPaths>
-			    </configuration>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>1.18.36</version>
+						</path>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>1.6.3</version>
+						</path>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok-mapstruct-binding</artifactId>
+							<version>0.2.0</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
 			</plugin>
+
+			<!--liquibase-->
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<configuration>
+					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
