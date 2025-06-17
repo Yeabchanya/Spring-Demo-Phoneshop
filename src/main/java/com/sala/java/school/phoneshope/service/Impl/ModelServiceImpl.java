@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.sala.java.school.phoneshope.Exception.ResourceNotFoundException;
 import com.sala.java.school.phoneshope.dto.ModelDTO;
 import com.sala.java.school.phoneshope.entity.Model;
 import com.sala.java.school.phoneshope.repository.ModelRepository;
@@ -36,6 +37,11 @@ public class ModelServiceImpl implements ModelService {
 	public List<Model> getByBrand(Integer brandId) {
 		// TODO Auto-generated method stub
 		return modelRepository.findByBrandId(brandId);
+	}
+
+	@Override
+	public Model getById(Long id) {
+		return modelRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Model", id));
 	}
 
 }

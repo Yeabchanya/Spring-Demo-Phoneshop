@@ -10,12 +10,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.DecimalMin;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "product")
+@Table(name = "product",
+uniqueConstraints = {@UniqueConstraint(columnNames = {"model_id", "color_id"})})
 public class Product {
 
 	@Id
@@ -43,7 +45,7 @@ public class Product {
 	private Color color;
 	
 	@DecimalMin(value = "0.000001", message = "Price must be greater than 0")
-	@Column(name = "sale_price")
+	@Column(name = "sale_price") 
 	private BigDecimal salePrice;
 
 }

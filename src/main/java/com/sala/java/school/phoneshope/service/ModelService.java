@@ -12,4 +12,6 @@ public interface ModelService {
 	// count brand apple have different model
 	List<Model> getByBrand(Integer brandId);
 	
+	Model getById(Long id);
+	
 }
