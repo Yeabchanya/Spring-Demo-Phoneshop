@@ -1,5 +1,7 @@
 package com.sala.java.school.phoneshope.controller;
 
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,9 +49,9 @@ public class ProductController {
 		return ResponseEntity.ok().build();
 	}
 	
-	@PostMapping("updoadProduct")
+	@PostMapping("uploadProduct")
 	public ResponseEntity<?> uploadProduct(@RequestParam("file") MultipartFile file){
-		productService.uploadProduct(file);
-		return ResponseEntity.ok().build();
+		Map<Integer, String> Error = productService.uploadProduct(file);
+		return ResponseEntity.ok(Error);
 	}
 }

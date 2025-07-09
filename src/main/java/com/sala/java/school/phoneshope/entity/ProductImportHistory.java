@@ -1,7 +1,9 @@
 package com.sala.java.school.phoneshope.entity;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,8 +33,7 @@ public class ProductImportHistory {
 
 	@Column(name = "date_import")
 	//@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	//private LocalDateTime dateImport;
-	private LocalDate dateImport;
+	private LocalDateTime dateImport;
 
 	@Column(name = "import_unit")
 	private Integer importUnit;

@@ -1,6 +1,7 @@
 package com.sala.java.school.phoneshope.service;
 
 import java.math.BigDecimal;
+import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,6 +19,8 @@ public interface ProductService {
 	
 	void validateStock(Long proId, Integer Qty);
 	
-	void uploadProduct(MultipartFile file);
+	Map<Integer, String> uploadProduct(MultipartFile file);
+	
+	Product getByModelIdAndColorId(Long modelId, long colorId);
 
 }

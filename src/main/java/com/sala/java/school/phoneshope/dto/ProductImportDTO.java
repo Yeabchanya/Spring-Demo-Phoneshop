@@ -2,6 +2,9 @@ package com.sala.java.school.phoneshope.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
@@ -20,6 +23,7 @@ public class ProductImportDTO {
 	private BigDecimal pricePerUnit;
 
 	@NotNull(message = "Import date can`t be null")
-	private LocalDate dateImport;
+	//@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private LocalDateTime dateImport;
 
 }
