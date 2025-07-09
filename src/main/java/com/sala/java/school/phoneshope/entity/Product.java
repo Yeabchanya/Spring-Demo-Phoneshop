@@ -33,8 +33,7 @@ public class Product {
 
 	@Column(name = "available_unit")
 	private Integer availableUnit;
-	
-	
+
 
 	@ManyToOne
 	@JoinColumn(name = "model_id")
