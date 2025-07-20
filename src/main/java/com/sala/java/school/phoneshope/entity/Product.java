@@ -16,8 +16,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "product",
-uniqueConstraints = {@UniqueConstraint(columnNames = {"model_id", "color_id"})})
+@Table(name = "product", uniqueConstraints = { @UniqueConstraint(columnNames = { "model_id", "color_id" }) })
 public class Product {
 
 	@Id
@@ -34,17 +33,16 @@ public class Product {
 	@Column(name = "available_unit")
 	private Integer availableUnit;
 
-
 	@ManyToOne
 	@JoinColumn(name = "model_id")
 	private Model model;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "color_id")
 	private Color color;
-	
+
 	@DecimalMin(value = "0.000001", message = "Price must be greater than 0")
-	@Column(name = "sale_price") 
+	@Column(name = "sale_price")
 	private BigDecimal salePrice;
 
 }

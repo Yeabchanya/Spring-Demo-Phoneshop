@@ -9,6 +9,7 @@ import lombok.Data;
 
 @Data
 public class SaleDTO {
+	
 	@NotEmpty
 	private List<ProductSoldDTO> products;
 	private LocalDate saleDate;
