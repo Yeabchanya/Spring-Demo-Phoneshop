@@ -2,7 +2,6 @@ package com.sala.java.school.phoneshope.controller;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,7 +25,6 @@ import com.sala.java.school.phoneshope.service.ModelService;
 import com.sala.java.school.phoneshope.service.mapper.ModelMapper;
 import com.sala.java.school.phoneshope.service.mapper.brandMapper;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -97,8 +95,8 @@ public class BrandController {
 		List<Model> brands = modelService.getByBrand(brandId);
 		List<ModelDTO> list = brands.stream()
 			//.map(mode -> modelMapper.toModelDTO(mode))
-			.map(modelMapper::toModelDTO) // style method referent
-			.toList();
+				.map(modelMapper::toModelDTO) // style method referent
+				.toList();
 		return ResponseEntity.ok(list);
 
 	}
